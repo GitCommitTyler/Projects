@@ -1,4 +1,4 @@
-package EmailValidation;
+package email_validation;
 
 public class EmailNotFoundException extends RuntimeException{
     EmailNotFoundException(String emailAddress){

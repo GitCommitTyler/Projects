@@ -1,4 +1,4 @@
-package EmailValidation;
+package email_validation;
 
 
 import java.util.Arrays;
