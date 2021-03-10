@@ -1,0 +1,5 @@
+filters\AddFilter.class
+com\AddPet.class
+entities\Pet.class
+com\PetsServlet.class
+com\HibernateUtil.class
