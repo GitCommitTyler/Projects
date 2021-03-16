@@ -11,9 +11,9 @@
 		
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/student</property>
-        <property name="connection.username">weraru</property>
-        <property name="connection.password">weraru_1</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/users</property>
+        <property name="connection.username">springuser</property>
+        <property name="connection.password">ThePassword</property>
 
     
         <!-- SQL dialect -->
