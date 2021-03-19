@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="testform.js">
+</script>
+
+</head>
+
+<body>
+
+<h2>Feedback Test Form</h2>
+<div>
+<label id=errormessage></label>
+</div><br>
+<form id="myForm" onsubmit="SubmitTestForm()">
+  <label for="fname">Name:</label><br>
+  <input type="text" id="name" name="name" ><br>
+  <label for="comment">Comment:</label><br>
+  <input type="text" id="comment" name="comment" ><br>
+  <label for="rating">Rating</label><br>
+  <input type="number" id="rating" name="rating" min="1" max="100"><br><br>
+  <input type="submit" value="Submit" >
+</form> 
+
+
+</body>
+</html>
