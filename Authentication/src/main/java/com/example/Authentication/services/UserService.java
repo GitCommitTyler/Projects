@@ -3,7 +3,6 @@ package com.example.Authentication.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.stereotype.Service;
 
 import com.example.Authentication.entities.User;
@@ -13,7 +12,6 @@ import com.example.Authentication.repositories.UserRepository;
 
 
 @Service
-@AutoConfigurationPackage
 public class UserService {
 	
 	@Autowired
@@ -27,11 +25,8 @@ public class UserService {
     }
 
 
-    public User GetUserByEmail(String email) {
-        User foundUser = userRepository.findByEmail(email);
-        if(foundUser == null) {
-        	throw new UserNotFoundException(email);
-        }
+    public User GetUserByName(String name) {
+        User foundUser = userRepository.findByName(name);
         return foundUser;
     }
     
@@ -39,11 +34,10 @@ public class UserService {
     	Optional<User> foundUser = userRepository.findById(id);
     	
     	
-    	
+    	//TODO: we need to decide how to handle a "Not Found" condition
     	
     	if (!foundUser.isPresent()) {
-    		
-    		throw new UserNotFoundException(id);
+    		throw new UserNotFoundException();
     	}
     	
     	return(foundUser.get());
