@@ -43,13 +43,16 @@ public class TaskService {
 		User taskUser = userService.GetUserByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
 		LocalDate dateNow = LocalDate.now();
 		Date date = Date.from(dateNow.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		
 		Date weekFromNow =  Date.from(dateNow.plus(1, ChronoUnit.WEEKS).atStartOfDay(ZoneId.systemDefault()).toInstant());
+		logger.info("USer ID"+ taskUser.getId());
 		return taskRepository.findBeforeDate(date, weekFromNow, taskUser.getId());
 	}
 	
 	public Iterable<Task> getTasksByDate(LocalDate date){
 		User taskUser = userService.GetUserByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
 		Date utilDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		logger.info("USer ID"+ taskUser.getId());
 		return taskRepository.findByEndDate(utilDate, taskUser.getId());
 	}
 	
