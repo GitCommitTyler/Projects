@@ -52,11 +52,11 @@ public class TaskController {
 		Map<LocalDate, Iterable<Task>> dateMap = new HashMap<LocalDate, Iterable<Task>>();
 		Iterable<Task> tasks = taskService.getTasksWithinWeek();
 		LocalDate dateNow = LocalDate.now();
-		LocalDate dateThen = dateNow.plus(52, ChronoUnit.WEEKS);
+		LocalDate dateThen = dateNow.plus(1, ChronoUnit.WEEKS);
 		List<LocalDate> dates = getDatesBetween(dateNow, dateThen);
 		dates.forEach(x -> dateMap.put(x, taskService.getTasksByDate(x)));
 		dateMap.entrySet().forEach(x-> logger.info(x.getValue().toString()));
-		map.addAttribute("tasks", tasks);
+		//map.addAttribute("tasks", tasks);
 		map.addAttribute("week", dates);
 		map.addAttribute("task", new Task());
 		map.addAttribute("dateMap", dateMap);

@@ -40,15 +40,17 @@ public class TaskService {
 	}
 	
 	public Iterable<Task> getTasksWithinWeek() {
+		User taskUser = userService.GetUserByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
 		LocalDate dateNow = LocalDate.now();
 		Date date = Date.from(dateNow.atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Date weekFromNow =  Date.from(dateNow.plus(1, ChronoUnit.WEEKS).atStartOfDay(ZoneId.systemDefault()).toInstant());
-		return taskRepository.findBeforeDate(date, weekFromNow);
+		return taskRepository.findBeforeDate(date, weekFromNow, taskUser.getId());
 	}
 	
 	public Iterable<Task> getTasksByDate(LocalDate date){
+		User taskUser = userService.GetUserByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
 		Date utilDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
-		return taskRepository.findByEndDate(utilDate);
+		return taskRepository.findByEndDate(utilDate, taskUser.getId());
 	}
 	
 	public void saveOrUpdateTask(Task taskToAdd) {
