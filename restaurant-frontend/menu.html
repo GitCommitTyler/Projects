@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ming's Diner</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.2.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  
+        <link rel="stylesheet" href="restaurant/restaurant.css">
+        <style>
+            .card{
+                max-height:300px;
+                height: 250px; 
+                color:white;
+                overflow: hidden;
+            }
+            .card-img-overlay{
+                visibility: hidden;
+                font-weight:900;
+            }
+
+            .overlay-dark{
+                visibility: hidden;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .card-title,
+            .card-text{
+                visibility: inherit;
+            }
+            .card:hover
+            .card-img-overlay {
+                visibility:visible;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="p-3 bg-dark text-white" style= "">
+            <div class="container" >
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <img src="restaurant\dinerlogo.png" alt="" width="200" height="190" class="d-inline-block align-text-top">
+                </a>
+          
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gy-3">
+                  <div class="row gx-lg-4">
+                    <div class="col navlist" ><li><a href="/" class="nav-link px-2 text-white" aria-disabled="true"><h2>Home</h2></a></li></div>
+                      <div class="col navlist"><li><a href="#" class="nav-link px-2 text-secondary" aria-disabled="true""><h2>Menu</h2></a></li></div>
+                        <div class="col navlist"><li><a href="/contact.html" class="nav-link px-2 text-white"><h2>Contact</h2></a></li></div>
+                    </div>
+                </ul>
+          
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                </form>
+          
+                <div class="text-end">
+          
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="container">
+            <p class="lead">Best Sellers</p>
+            <div class="row row-cols-1 row-cols-lg-5 g-2 g-lg-3" style="padding-bottom: 20px;">
+              
+                <div class="col">
+                  <div class="card">
+                      <img src="restaurant/Kung-Pao-Chicken-16-scaled.jpg" class="card-img-top">
+                      <div class="card-img-overlay overlay-dark">
+                          <h5 class="card-title">KUNG FU KICKIN KUNG PAO CHICKEN</h5>
+                          <p class="card-text">DELICIOUSLY FRIED CHICKEN AND RICE</p>
+                          <p class="card-text">$9.99</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                      <img src="restaurant/Chow-Mein_1.jpg" class="card-img-top">
+                      <div class="card-img-overlay overlay-dark" >
+                          <h5 class="card-title">CHOW DOWN CHOW MEIN</h5>
+                          <p class="card-text">IT'S CHOW TIME!</p>
+                          <p class="card-text">$7.99</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                      <img src="restaurant/spring-rolls.jpg" class="card-img-top">
+                      <div class="card-img-overlay overlay-dark">
+  
+                          <h5 class="card-title">TUBULAR SPRING ROLLS</h5>
+                          <p class="card-text">MADE WITH THE FRESHEST VEGGIES AND NOODLES</p>
+                          <p class="card-text">$6.99</p>
+  
+                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                      <img src="restaurant/Crab-Rangoon.jpg" class="card-img-top">
+                      <div class="card-img-overlay overlay-dark">
+                          <h5 class="card-title">CRAB RANGOON</h5>
+                          <p class="card-text">NOTHIN KRUSTY ABOUT THESE KRABS</p>
+                          <p class="card-text">$8.99</p>
+                        </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                      <img src="restaurant/DumplingFillings.jfif" class="card-img-top">
+                      <div class="card-img-overlay overlay-dark">
+                          <h5 class="card-title">DING DANG DUMPLINGS</h5>
+                          <p class="card-text">STUFFED DUMPLINGS TO MELT IN YOUR MOUTH OR SOMETHING</p>
+                          <p class="card-text">$7.99</p>
+                        </div>
+                  </div>
+                </div>
+              </div>
+
+            <p class="lead">Entrees</p>
+            <div class="row row-cols-1 row-cols-lg-5 g-2 g-lg-3" style="">
+              
+              <div class="col">
+                <div class="card">
+                    <img src="restaurant/Kung-Pao-Chicken-16-scaled.jpg" class="card-img-top">
+                    <div class="card-img-overlay overlay-dark">
+                        <h5 class="card-title">KUNG FU KICKIN KUNG PAO CHICKEN</h5>
+                        <p class="card-text">DELICIOUSLY FRIED CHICKEN AND RICE</p>
+                        <p class="card-text">$9.99</p>
+                    </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <img src="restaurant/Chow-Mein_1.jpg" class="card-img-top">
+                    <div class="card-img-overlay overlay-dark" >
+                        <h5 class="card-title">CHOW DOWN CHOW MEIN</h5>
+                        <p class="card-text">IT'S CHOW TIME!</p>
+                        <p class="card-text">$7.99</p>
+                    </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <img src="restaurant/spring-rolls.jpg" class="card-img-top">
+                    <div class="card-img-overlay overlay-dark">
+
+                        <h5 class="card-title">TUBULAR SPRING ROLLS</h5>
+                        <p class="card-text">MADE WITH THE FRESHEST VEGGIES AND NOODLES</p>
+                        <p class="card-text">$6.99</p>
+
+                    </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <img src="restaurant/Crab-Rangoon.jpg" class="card-img-top">
+                    <div class="card-img-overlay overlay-dark">
+                        <h5 class="card-title">CRAB RANGOON</h5>
+                        <p class="card-text">NOTHIN KRUSTY ABOUT THESE KRABS</p>
+                        <p class="card-text">$8.99</p>
+                      </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <img src="restaurant/DumplingFillings.jfif" class="card-img-top">
+                    <div class="card-img-overlay overlay-dark">
+                        <h5 class="card-title">DING DANG DUMPLINGS</h5>
+                        <p class="card-text">STUFFED DUMPLINGS TO MELT IN YOUR MOUTH OR SOMETHING</p>
+                        <p class="card-text">$7.99</p>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+    
+</html>
