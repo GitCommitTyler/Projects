@@ -28,7 +28,8 @@ public class TaskService {
 	
 	Logger logger = LoggerFactory.getLogger(TaskService.class);
 	public Iterable<Task> getAllTasks(){
-		return taskRepository.findAll();
+		User taskUser = userService.GetUserByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
+		return taskRepository.findAllByUser(taskUser);
 	}
 	
 	public Task getTaskById(int id) {
@@ -60,6 +61,10 @@ public class TaskService {
 		User taskUser = userService.GetUserByUserName(SecurityContextHolder.getContext().getAuthentication().getName());
 		taskToAdd.setUser(taskUser);
 		taskRepository.save(taskToAdd);
+	}
+	
+	public void deleteTask(Task taskToDelete) {
+		taskRepository.delete(taskToDelete);
 	}
 	
 }

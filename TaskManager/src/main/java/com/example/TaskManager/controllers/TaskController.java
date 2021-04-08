@@ -51,6 +51,8 @@ public class TaskController {
 	public String showTasks(ModelMap map) {
 		Map<LocalDate, Iterable<Task>> dateMap = new HashMap<LocalDate, Iterable<Task>>();
 		Iterable<Task> tasks = taskService.getTasksWithinWeek();
+		Iterable<Task> allTasks = taskService.getAllTasks();
+		map.addAttribute("allTasks",allTasks);
 		LocalDate dateNow = LocalDate.now();
 		LocalDate dateThen = dateNow.plus(1, ChronoUnit.WEEKS);
 		List<LocalDate> dates = getDatesBetween(dateNow, dateThen);
@@ -89,5 +91,12 @@ public class TaskController {
 		taskService.saveOrUpdateTask(task);
 		return "redirect:/tasks";
 		
+	}
+	
+	@RequestMapping(value = "/deletetask", method = RequestMethod.POST)
+	public String delete(ModelMap map, @ModelAttribute("task") Task task){
+		logger.info("task being deleted: "+task.toString());
+		taskService.deleteTask(task);
+		return "redirect:/tasks";
 	}
 }

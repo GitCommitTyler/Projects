@@ -22,4 +22,8 @@ public interface TaskRepository extends CrudRepository<Task, Integer>{
 	@Query(value= "SELECT * FROM task t INNER JOIN user u ON t.id = u.id WHERE t.end_date = ?1 AND u.id=?2", nativeQuery=true)
 	public Iterable<Task> findByEndDate(Date date, int id);
 	
+	public Iterable<Task> findAllByUser(User taskUser);
+	
+	
+	
 }

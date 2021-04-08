@@ -33,13 +33,18 @@ public class LoginController {
 
     @GetMapping(value={"/login"})
     public String showLogin(ModelMap map) {
+    	User user = new User();
+    	map.addAttribute("user", user);
         return "loginform";
     }
 
     @PostMapping(value={"/login"})
-    public String submitLogin(@RequestParam String username, @RequestParam String password){
-
-    	if(us.GetUserByUserName(username) != null) {
+    public String submitLogin(@RequestParam String username, @RequestParam String password, BindingResult bindingResult){
+    	User userExists = us.GetUserByUserName(username);
+//    	if(userExists == null) {
+//    		bindingResult.rejectValue("username", "error.user", "Username not found");
+//    	}
+    	if(userExists!=null) {
     		
     		return "addtask";
     		}

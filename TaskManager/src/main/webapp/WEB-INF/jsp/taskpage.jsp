@@ -30,7 +30,7 @@
 <script>
 
 </script>
-<label  class="input-group-text" for="">Upcoming Tasks</label>
+<label  class="input-group-text lead" for="">Upcoming Tasks</label>
 <div class="row justify-content-around" style="height: '100px'">
 <c:forEach items="${week}" var="day" varStatus="count">
 	<div class="col-md-auto">
@@ -141,7 +141,7 @@
 									    <form:label path="severity" class="input-group-text" for="severity">Severity</form:label>
 									  </div>
 									  <form:select path="severity" class="custom-select" name="severity">
-									  <option selected>Choose...</option>
+									  <option selected value="${task.severity}">Choose...</option>
 									  <% for(Severity level : Severity.values()){ %>
 									    
 									    <option value=<%=level%>><%out.print(level.toString());%></option>
@@ -150,14 +150,18 @@
 									  </form:select>
 									  <form:errors path="severity" cssClass="error"/>
 									</div>
+
+								</form:form>
 							      <div class="modal-footer">
 									<div class="row">
 										<div class="col-md-6">
-											<button type="submit" class="btn btn-outline-primary">Save</button>
+												<button form="form" type="submit" formaction="deletetask" class="btn btn-danger">Delete</button>
+										</div>
+										<div class="col-md-6">
+											<button form="form" type="submit" class="btn btn-outline-primary">Save</button>
 										</div>
 									</div>
 								</div>
-								</form:form>
 								</div>
 					      </div>
 
@@ -179,5 +183,38 @@
 <div class="col-md-3">
 <a type="button" class="btn btn-primary" href="addtasks">add Task</a>
 </div>
+</div>
+<div class="container" style="padding-top: 20px">
+<label  class="input-group-text lead" for="">All Tasks</label>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Task</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Severity</th>
+      <th scope="col">Description</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<c:forEach items="${allTasks}" var="task">
+  	<form:form method="post" action="deletetask" methodAttribute="task" id="tableform${task.taskId}"></form:form>
+    <tr>
+      <th scope="row"><form:input path="task.taskId" form="tableform${task.taskId}" readonly="true" value="${task.taskId}"></form:input></th>
+      <td><form:input path="task.taskName" form="tableform${task.taskId}" readonly="true" value="${task.taskName}"></form:input></td>
+      <td><form:input path="task.startDate" form="tableform${task.taskId}" readonly="true" value="${task.startDate}"></form:input></td>
+      <td><form:input path="task.endDate" form="tableform${task.taskId}" readonly="true" value="${task.endDate}"></form:input></td>
+      <td><form:input path="task.severity" form="tableform${task.taskId}" readonly="true" value="${task.severity}"></form:input></td>
+      <td><form:input path="task.description" form="tableform${task.taskId}" readonly="true" value="${task.description}"></form:input></td>
+      <td>
+      <button class="btn btn-danger" form="tableform${task.taskId}" type="submit" >Delete</button>
+      </td>
+    </tr>
+    </c:forEach>
+  </tbody>
+</table>
 </div>
 </body>
